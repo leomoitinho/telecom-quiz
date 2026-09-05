@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulador de Certificação — FluTelecom</title>
+
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="w">
+  <header>
+    <div class="header-left">
+      <!-- Escudo do Fluminense em SVG -->
+      <div class="flu-shield">
+        <svg width="48" height="56" viewBox="0 0 48 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Escudo base -->
+          <path d="M24 2 L44 10 L44 32 Q44 46 24 54 Q4 46 4 32 L4 10 Z" fill="#1a1a1a" stroke="#8B1A1A" stroke-width="1.5"/>
+          <!-- Faixas diagonais grená/verde/branco -->
+          <clipPath id="shield-clip">
+            <path d="M24 2 L44 10 L44 32 Q44 46 24 54 Q4 46 4 32 L4 10 Z"/>
+          </clipPath>
+          <g clip-path="url(#shield-clip)">
+            <!-- Faixa grená esquerda -->
+            <rect x="4" y="2" width="14" height="55" fill="#8B1A1A"/>
+            <!-- Faixa verde centro-esq -->
+            <rect x="18" y="2" width="5" height="55" fill="#2E7D32"/>
+            <!-- Faixa branca centro -->
+            <rect x="23" y="2" width="3" height="55" fill="#F5F5F5"/>
+            <!-- Faixa verde centro-dir -->
+            <rect x="26" y="2" width="5" height="55" fill="#2E7D32"/>
+            <!-- Faixa grená direita -->
+            <rect x="31" y="2" width="13" height="55" fill="#8B1A1A"/>
+          </g>
+          <!-- Borda do escudo -->
+          <path d="M24 2 L44 10 L44 32 Q44 46 24 54 Q4 46 4 32 L4 10 Z" fill="none" stroke="#c8922a" stroke-width="1.5"/>
+          <!-- FFC no centro -->
+          <text x="24" y="33" text-anchor="middle" font-family="serif" font-weight="bold" font-size="8" fill="#F5F5F5" letter-spacing="0.5">FFC</text>
+        </svg>
+      </div>
+      <div>
+        <h1>FluTelecom Quiz</h1>
+        <div class="sub">Simulador de certificação — cabeamento estruturado</div>
+      </div>
+    </div>
+    <div class="pill" id="pill">pontuação: 0</div>
+  </header>
+
+  <div id="scLogin">
+    <div class="card" style="text-align:center">
+      <h2>Bem-vindo, técnico</h2>
+      <p>Digite seu nome para começar:</p>
+      <input id="inName" type="text" placeholder="Seu nome..." />
+      <button class="a" id="btnLogin">Continuar →</button>
+    </div>
+  </div>
+
+  <div id="scLevel" class="hidden">
+    <div class="card" style="text-align:center">
+      <h2>Escolha seu nível</h2>
+      <p>Define dicas disponíveis e número de alternativas por pergunta.</p>
+      <button class="a" data-lvl="junior" style="background:#4c9a5a">👶 Junior — com dicas, 4 opções</button>
+      <button class="a" data-lvl="pleno"  style="background:#f2a154">💼 Pleno — sem dicas, 5 opções</button>
+      <button class="a" data-lvl="senior" style="background:#e2645a">🔥 Senior — sem dicas, 6 opções</button>
+    </div>
+  </div>
+
+  <div id="scRanking" class="hidden">
+    <div class="card">
+      <h2 style="margin:0 0 14px">📊 Ranking — <span id="rkLabel"></span></h2>
+      <div id="rkList"></div>
+      <button class="g" id="btnRkCont" style="width:100%;margin-top:14px">Continuar ao menu →</button>
+    </div>
+  </div>
+
+  <div id="scMenu" class="hidden">
+    <div style="border-bottom:1px solid var(--ln);padding-bottom:12px;margin-bottom:18px">
+      <div style="font-size:.9rem;color:var(--dm);font-family:'IBM Plex Mono',monospace">Jogando como</div>
+      <div id="curPlayer" style="font-weight:700;font-size:1.1rem;margin-bottom:8px"></div>
+      <button class="g" id="btnChange">Trocar jogador</button>
+    </div>
+    <div id="mList"></div>
+  </div>
+
+  <div id="scIntro" class="hidden">
+    <div class="card" id="introBox"></div>
+    <div class="br">
+      <button class="a" id="btnStart">Iniciar simulação</button>
+      <button class="g" id="btnBack">Voltar ao menu</button>
+    </div>
+  </div>
+
+  <div id="scQuiz" class="hidden">
+    <div class="rp hidden" id="refPanel">
+      <div class="rpl" id="refLabel"></div>
+      <div id="refGrid"></div>
+    </div>
+    <div class="qp" id="qProg"></div>
+    <div class="qt"><div class="qtf" id="qFill"></div></div>
+    <div class="qq">
+      <div class="sl" id="qSide"></div>
+      <div class="ak" id="qAsk"></div>
+      <div class="cx" id="qCtx"></div>
+    </div>
+    <div class="os" id="qOpts"></div>
+    <div class="fb" id="qFb"></div>
+  </div>
+
+  <div id="scSummary" class="hidden">
+    <div class="sum">
+      <div class="sub" style="margin-bottom:2px">Fase concluída</div>
+      <h2 id="sumTitle"></h2>
+      <div class="sb" id="sumSt"></div>
+      <p id="sumTx"></p>
+      <div class="br">
+        <button class="a" id="btnRetry">Refazer fase</button>
+        <button class="g" id="btnMenu">Voltar ao menu</button>
+      </div>
+    </div>
+  </div>
+  <div class="flu-footer">
+    <svg width="18" height="21" viewBox="0 0 48 56" style="vertical-align:middle;margin-right:6px" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M24 2 L44 10 L44 32 Q44 46 24 54 Q4 46 4 32 L4 10 Z" fill="#1a1a1a" stroke="#8B1A1A" stroke-width="2"/>
+      <clipPath id="sc2"><path d="M24 2 L44 10 L44 32 Q44 46 24 54 Q4 46 4 32 L4 10 Z"/></clipPath>
+      <g clip-path="url(#sc2)">
+        <rect x="4" y="2" width="14" height="55" fill="#8B1A1A"/>
+        <rect x="18" y="2" width="5" height="55" fill="#2E7D32"/>
+        <rect x="23" y="2" width="3" height="55" fill="#F5F5F5"/>
+        <rect x="26" y="2" width="5" height="55" fill="#2E7D32"/>
+        <rect x="31" y="2" width="13" height="55" fill="#8B1A1A"/>
+      </g>
+      <path d="M24 2 L44 10 L44 32 Q44 46 24 54 Q4 46 4 32 L4 10 Z" fill="none" stroke="#c8922a" stroke-width="2"/>
+    </svg>
+    Desenvolvido por <span>Wanderley</span> &amp; Claude (Anthropic) · 2026 · Força, Flu! 🟢⚪🔴
+  </div>
+</div>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+/* ============================================================
+ * FluTelecom Quiz — Estilos
+ * Tema: Fluminense Football Club
+ * Cores: Grená #8B1A1A · Verde #2E7D32 · Branco #F5F5F5
+ * ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;600&display=swap');
+:root{
+  --bg:#0f0f0f;
+  --p:#1a1a1a;
+  --p2:#242424;
+  --p3:#2e2e2e;
+  --ln:#3a3a3a;
+  --tx:#f0f0f0;
+  --dm:#9a9a9a;
+  --ok:#2E7D32;
+  --wn:#c8922a;
+  --bd:#8B1A1A;
+  --ac:#8B1A1A;
+  /* Fluminense */
+  --flu-grenà:#8B1A1A;
+  --flu-verde:#2E7D32;
+  --flu-branco:#F5F5F5;
+  --flu-ouro:#c8922a;
+}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{
+  background:
+    radial-gradient(circle at 0% 0%, rgba(139,26,26,0.12), transparent 45%),
+    radial-gradient(circle at 100% 100%, rgba(46,125,50,0.10), transparent 45%),
+    var(--bg);
+  color:var(--tx);font-family:'Space Grotesk',sans-serif;min-height:100vh;padding:26px 16px 60px
+}
+.w{max-width:720px;margin:0 auto}
+
+/* ---- HEADER ---- */
+header{
+  display:flex;justify-content:space-between;align-items:center;
+  border-bottom:2px solid transparent;
+  border-image:linear-gradient(90deg,var(--flu-grenà),var(--flu-verde),var(--flu-grenà)) 1;
+  padding-bottom:16px;margin-bottom:22px;gap:14px;flex-wrap:wrap
+}
+.header-left{display:flex;align-items:center;gap:14px}
+.flu-shield{flex-shrink:0}
+h1{font-size:1.4rem;margin:0;font-weight:700;
+  background:linear-gradient(135deg,var(--flu-branco) 40%,var(--flu-ouro));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text
+}
+.sub{color:var(--dm);font-family:'IBM Plex Mono',monospace;font-size:.8rem;margin-top:4px}
+.pill{
+  font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--flu-ouro);
+  border:1px solid var(--flu-grenà);background:var(--p);padding:6px 12px;border-radius:20px
+}
+
+/* ---- CARDS ---- */
+.card{
+  background:var(--p);
+  border:1px solid var(--ln);
+  border-top:2px solid var(--flu-grenà);
+  border-radius:10px;padding:22px;margin-bottom:18px
+}
+.card h2{margin:0 0 10px;font-size:1.1rem}
+.card p{color:var(--dm);font-size:.88rem;line-height:1.5;margin:0 0 12px}
+input{width:100%;padding:10px;border:1px solid var(--ln);background:var(--p2);color:var(--tx);border-radius:6px;font-family:inherit;font-size:.9rem;margin-bottom:12px}
+input:focus{outline:none;border-color:var(--flu-grenà)}
+
+/* ---- BOTÕES ---- */
+button.a{
+  font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.88rem;
+  background:linear-gradient(135deg,var(--flu-grenà),#6b1313);
+  color:var(--flu-branco);border:none;padding:11px 20px;border-radius:6px;
+  cursor:pointer;width:100%;margin-bottom:8px;
+  box-shadow:0 2px 8px rgba(139,26,26,0.3);
+  transition:filter .15s,box-shadow .15s
+}
+button.a:hover{filter:brightness(1.15);box-shadow:0 4px 16px rgba(139,26,26,0.5)}
+button.g{
+  background:transparent;border:1px solid var(--ln);color:var(--dm);
+  padding:9px 16px;border-radius:6px;font-family:'IBM Plex Mono',monospace;
+  font-size:.8rem;cursor:pointer;transition:color .15s,border-color .15s
+}
+button.g:hover{color:var(--tx);border-color:var(--flu-grenà)}
+
+/* ---- MISSÕES ---- */
+.mc{
+  background:var(--p);border:1px solid var(--ln);border-left:3px solid var(--flu-verde);
+  border-radius:10px;padding:16px 18px;display:flex;justify-content:space-between;
+  align-items:center;gap:14px;cursor:pointer;margin-bottom:10px;
+  transition:border-color .15s,background .15s
+}
+.mc:hover{border-color:var(--flu-grenà);border-left-color:var(--flu-grenà);background:var(--p2)}
+.mc.lk{opacity:.45;cursor:not-allowed;border-left-color:var(--ln)}
+.mn{font-weight:700;font-size:1rem}
+.md{color:var(--dm);font-size:.82rem;font-family:'IBM Plex Mono',monospace;margin-top:2px}
+.st{font-size:1.1rem;color:var(--flu-ouro);white-space:nowrap}
+.st .o{color:var(--ln)}
+
+/* ---- REFERÊNCIA / COLA ---- */
+.rp{background:var(--p2);border:1px solid var(--ln);border-top:2px solid var(--flu-verde);border-radius:8px;padding:14px;margin-bottom:16px}
+.rpl{font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--flu-verde);margin-bottom:10px;letter-spacing:.05em;text-transform:uppercase}
+.rg{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.rg.pc{grid-template-columns:repeat(auto-fit,minmax(46px,1fr))}
+.rpt{background:var(--p3);border:1px solid var(--ln);border-radius:6px;padding:8px 6px;text-align:center}
+.rpt .pn{font-family:'IBM Plex Mono',monospace;font-size:.65rem;color:var(--flu-ouro);margin-bottom:3px}
+.rpt .pi{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--tx)}
+.rpt.pk{padding:6px 4px}
+.rpt.pk .pn{color:var(--dm)}
+.sw{height:24px;border-radius:4px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.35)}
+.sw.s{background-image:repeating-linear-gradient(45deg,var(--a) 0 4px,var(--b) 4px 8px)}
+.sw.l{background:var(--a)}
+.rs{margin-bottom:14px}
+.rl{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--flu-verde);margin-bottom:8px;text-transform:uppercase;letter-spacing:.05em}
+.rf{display:grid;grid-template-columns:repeat(auto-fit,minmax(46px,1fr));gap:6px}
+.rfi{display:flex;flex-direction:column;align-items:center;gap:4px}
+.rfi .n{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--dm)}
+.cn{margin:0;padding-left:18px}
+.cn li{font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--tx);margin-bottom:7px;line-height:1.4}
+.cn li::marker{color:var(--flu-grenà)}
+
+/* ---- QUIZ ---- */
+.qp{font-family:'IBM Plex Mono',monospace;font-size:.75rem;color:var(--dm);margin-bottom:10px}
+.qt{height:5px;background:var(--p2);border-radius:3px;overflow:hidden;margin-bottom:20px}
+.qtf{height:100%;background:linear-gradient(90deg,var(--flu-grenà),var(--flu-verde));transition:width .25s}
+.qq{
+  background:var(--p);border:1px solid var(--ln);
+  border-top:2px solid var(--flu-grenà);
+  border-radius:10px;padding:22px;text-align:center;margin-bottom:18px
+}
+.sl{font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--flu-verde);margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
+.ak{font-size:1.1rem;font-weight:700;margin-bottom:4px}
+.cx{color:var(--dm);font-size:.85rem;font-family:'IBM Plex Mono',monospace}
+.os{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.op{
+  display:flex;align-items:center;gap:10px;background:var(--p);
+  border:1.5px solid var(--ln);border-radius:8px;padding:10px 12px;
+  cursor:pointer;font-size:.88rem;color:var(--tx);transition:border-color .1s,background .1s
+}
+.op:hover{border-color:var(--flu-grenà);background:var(--p2)}
+.op.ok_{border-color:var(--flu-verde);background:#0d2610}
+.op.ng{border-color:var(--flu-grenà);background:#2a0808}
+.op.ds{pointer-events:none;opacity:.6}
+.pb{width:34px;height:24px;display:flex;align-items:center;justify-content:center;background:var(--p3);border-radius:4px;font-family:'IBM Plex Mono',monospace;font-size:.78rem;color:var(--flu-ouro);flex-shrink:0}
+.fb{font-family:'IBM Plex Mono',monospace;font-size:.85rem;min-height:1.3em;margin-top:14px;text-align:center}
+.fb.ok_{color:var(--flu-verde)}
+.fb.ng{color:var(--flu-grenà)}
+
+/* ---- SUMÁRIO ---- */
+.sum{
+  background:var(--p);
+  border:1px solid var(--ln);
+  border-top:3px solid var(--flu-grenà);
+  border-radius:10px;padding:26px;text-align:center
+}
+.sb{font-size:2rem;letter-spacing:6px;color:var(--flu-ouro);margin:10px 0 16px}
+.sb .o{color:var(--ln)}
+.br{display:flex;gap:10px;justify-content:center;margin-top:18px;flex-wrap:wrap}
+
+/* ---- RANKING ---- */
+.ri{
+  display:flex;justify-content:space-between;padding:10px 12px;
+  background:var(--p2);border-left:3px solid var(--flu-grenà);
+  border-radius:6px;font-family:'IBM Plex Mono',monospace;font-size:.85rem;margin-bottom:8px
+}
+
+/* ---- FOOTER ---- */
+.flu-footer{
+  text-align:center;margin-top:40px;padding-top:16px;
+  border-top:1px solid var(--ln);
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--dm)
+}
+.flu-footer span{color:var(--flu-grenà)}
+
+.ld{text-align:center;padding:30px;color:var(--dm);font-family:'IBM Plex Mono',monospace}
+.hidden{display:none!important}
+@media(max-width:520px){.rf{grid-template-columns:repeat(4,1fr);row-gap:10px}.os{grid-template-columns:1fr}}
