@@ -201,7 +201,7 @@ question_options — Opções de resposta (is_correct marca a certa)
 
 Desenvolvido com dedicação por:
 
-**Wanderley** — Especialista em telecom, idealizador do projeto  
+**Leonardo Moitinho** — Especialista em telecom, idealizador do projeto  
 **Claude (Anthropic)** — Co-desenvolvedor, arquitetura e implementação
 
 ---
