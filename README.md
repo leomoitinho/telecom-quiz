@@ -100,7 +100,13 @@ git clone https://github.com/seu-usuario/simulador-cabeamento.git
 cd simulador-cabeamento
 ```
 
-**2. Configure o banco de dados**
+**2. Cria o usuário dedicado (edite a senha antes!)**
+```bash
+nano sql/create-mysql-user.sql   # troque 'senha_forte_aqui'
+mysql -u root -p < sql/create-mysql-user.sql
+```
+
+**3. Configure o banco de dados**
 ```bash
 # Cria as tabelas
 mysql -u root -p < sql/db-schema-v2.sql
@@ -109,19 +115,19 @@ mysql -u root -p < sql/db-schema-v2.sql
 mysql -u root -p simulador_cabeamento < sql/db-seed-v2.sql
 ```
 
-**3. Configure as credenciais**
+**4. Configure as credenciais**
 ```bash
 cp config.example.php config.php
 nano config.php   # Edite com seus dados
 ```
 
-**4. Copie os arquivos para o servidor web**
+**5. Copie os arquivos para o servidor web**
 ```bash
 sudo cp -r . /var/www/html/simulador/
 sudo chown -R www-data:www-data /var/www/html/simulador/
 ```
 
-**5. Acesse no navegador**
+**6. Acesse no navegador**
 ```
 http://seu-servidor/simulador/
 ```
